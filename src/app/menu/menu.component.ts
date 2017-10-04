@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  title = 'Pet-Date';
+  items = Array();
 
   constructor() { }
 
   ngOnInit() {
+    this.items.push({name:'home', path:'/'});
+    this.items.push({name:'faq', path:'/faq'});
+    this.items.push({name:'login', path:'/login'});
   }
 
 }
