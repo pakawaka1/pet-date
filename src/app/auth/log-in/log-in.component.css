@@ -1,0 +1,22 @@
+.jumbotron {
+  background-image: url("/assets/img/petwalk1.jpg");
+  background-size: cover;
+  height: calc(100vh - 50px);
+  margin: 0;
+  padding: 0;
+}
+
+#formholder {
+  background-color: rgba(102,102,102, 0.5);
+  position: fixed;
+  top: calc(50vh - 136px);
+}
+
+form {
+  margin: 20px;
+}
+
+.btn {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}

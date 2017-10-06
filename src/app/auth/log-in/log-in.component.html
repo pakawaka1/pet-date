@@ -1,3 +1,14 @@
-<p>
-  log-in works!
-</p>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4" id="formholder">
+      <form class="form-group" [formGroup]="form" (submit)="onLoginSubmit()">
+        <h3 class="page-header">Log in</h3>
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" formControlName="email">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" formControlName="password">
+        <input type="submit" class="btn btn-primary pull-right" value="Log In">
+      </form>
+    </div>
+  </div>
+</div>
