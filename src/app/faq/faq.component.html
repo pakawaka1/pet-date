@@ -1,17 +1,21 @@
 <div class="row placeholders">
   <div class="col-xs-2">&nbsp;</div>
-  <div class="col-xs-4">{{title}}</div>
-  <div class="col-xs-4">&nbsp;</div>
+  <div class="col-xs-8">
+    <img
+      class="img-responsive center-block"
+      width="100" src="../../assets/img/QuestioningDog.jpg">
+  </div>
   <div class="col-xs-2">&nbsp;</div>
 </div>
-<div class="row placeholders">
+<hr>
+<div class="row placeholders text-center ">
   <div class="col-xs-2">&nbsp;</div>
   <div class="col-xs-4">Questions</div>
   <div class="col-xs-4">Answers</div>
   <div class="col-xs-2">&nbsp;</div>
 </div>
 <hr>
-<div class="row placeholders" *ngFor="let f of faqItems">
+<div class="row text-center placeholders" *ngFor="let f of faqItems">
   <div class="col-xs-2">&nbsp;</div>
   <div class="col-xs-4">{{f.question}}</div>
   <div class="col-xs-4">{{f.answer}}</div>
