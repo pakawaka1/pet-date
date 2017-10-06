@@ -1,11 +1,13 @@
-.landing-img {
+/*.landing-img {
   width: 100%;
   height: auto;
-}
+}*/
 
-.img-holder {
-  width: 100vw;
-  height: 100vh;
+.jumbotron {
+  background-image: url("/assets/img/petwalk1.jpg");
+  background-size: cover;
+  height: calc(100vh - 50px);
   margin: 0;
   padding: 0;
+  /*need to remove bottom 20px margin from navbar*/
 }
