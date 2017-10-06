@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
     this.items.push({name:'home', path:'/'});
     this.items.push({name:'faq', path:'/faq'});
     this.items.push({name:'login', path:'/login'});
+    this.items.push({name:'signup', path:'/register'})
   }
 
 }
