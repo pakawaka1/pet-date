@@ -1,3 +1,21 @@
-<p>
-  faq works!
-</p>
+<div class="row placeholders">
+  <div class="col-xs-2">&nbsp;</div>
+  <div class="col-xs-4">{{title}}</div>
+  <div class="col-xs-4">&nbsp;</div>
+  <div class="col-xs-2">&nbsp;</div>
+</div>
+<div class="row placeholders">
+  <div class="col-xs-2">&nbsp;</div>
+  <div class="col-xs-4">Questions</div>
+  <div class="col-xs-4">Answers</div>
+  <div class="col-xs-2">&nbsp;</div>
+</div>
+<hr>
+<div class="row placeholders" *ngFor="let f of faqItems">
+  <div class="col-xs-2">&nbsp;</div>
+  <div class="col-xs-4">{{f.question}}</div>
+  <div class="col-xs-4">{{f.answer}}</div>
+  <div class="col-xs-2">&nbsp;</div>
+  <br>
+  <hr>
+</div>
