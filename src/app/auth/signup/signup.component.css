@@ -1,3 +1,38 @@
-.form-in {
-	padding: None;
+.form-section {
+	padding: 200px 0;
 }
+
+.fix {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.email {
+	padding: 0 auto;
+}
+
+.email input {
+	width: 100%;
+}
+
+.password {
+	padding: 0 auto;
+}
+
+.password input {
+	width: 100%;
+}
+
+.phonenumber {
+	padding: 0 auto;
+}
+
+.phonenumber input {
+	width: 100%;
+}
+
+.name input {
+	width: 100%;
+	padding: 0 auto;
+}
+
