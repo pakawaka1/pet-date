@@ -15,6 +15,7 @@ import { PetScheduleComponent } from './pet/pet-schedule/pet-schedule.component'
 import { PetDetailComponent } from './pet/pet-detail/pet-detail.component';
 import { PetListComponent } from './pet/pet-list/pet-list.component';
 import { LandingComponent } from './landing/landing.component';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LandingComponent } from './landing/landing.component';
     PetScheduleComponent,
     PetDetailComponent,
     PetListComponent,
-    LandingComponent
+    LandingComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,
