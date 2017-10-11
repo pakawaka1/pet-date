@@ -1,3 +1,60 @@
-<p>
-  user-profile works!
-</p>
+<br>
+<!--Row with username & email on Left, and Picture on right.-->
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-6">
+    <br>
+    <!--Title Here-->
+    <div class="row">
+      <div class="col-xs-12">User Profile</div>
+    </div>
+    <br>
+    <!--Username-->
+    <div class="row">
+      <div class="col-xs-4">Username</div>
+      <div class="col-xs-8">
+        <input type="text" placeholder="User Name" value="{{username}}" >
+      </div>
+    </div>
+    <!--Email-->
+    <div class="row">
+      <div class="col-xs-4">Email</div>
+      <div class="col-xs-8">
+        <input type="text" placeholder="Email Address" value="{{email}}" >
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4" align="center">
+    <img src="http://via.placeholder.com/200x200">
+  </div>
+</div>
+<br>
+
+<!--History goes here-->
+
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Pet</th>
+      <th>Date</th>
+      <th>Activity</th>
+      <th>Rate</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr scope="row" *ngFor="let h of history">
+      <td>{{h.pet}}</td>
+      <td>{{h.date}}</td>
+      <td>{{h.activity}}</td>
+      <td>{{h.rate}}</td>
+    </tr>
+  </table>
+  </div>
+  <div class="col-xs-1"></div>
+</div>
+
