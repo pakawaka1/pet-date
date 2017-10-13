@@ -16,6 +16,8 @@ import { PetDetailComponent } from './pet/pet-detail/pet-detail.component';
 import { PetListComponent } from './pet/pet-list/pet-list.component';
 import { LandingComponent } from './landing/landing.component';
 import { SortByPipe } from './pipes/sort-by.pipe';
+import { TermsComponent } from './terms/terms.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { SortByPipe } from './pipes/sort-by.pipe';
     PetDetailComponent,
     PetListComponent,
     LandingComponent,
-    SortByPipe
+    SortByPipe,
+    TermsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

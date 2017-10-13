@@ -13,6 +13,7 @@ import { PetScheduleComponent } from './pet/pet-schedule/pet-schedule.component'
 import { PetDetailComponent } from './pet/pet-detail/pet-detail.component';
 import { PetListComponent } from './pet/pet-list/pet-list.component';
 import { LandingComponent } from './landing/landing.component';
+import { TermsComponent } from './terms/terms.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'pets', component: PetListComponent},
   {path: 'pet-detail', component: PetDetailComponent},
   {path: 'schedule', component: PetScheduleComponent},
+  {path: 'terms', component: TermsComponent },
   // {path: '*', redirectTo: ''},
 ];
 
