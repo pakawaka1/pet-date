@@ -1,15 +1,16 @@
-var angularserver = require('angularjs-server');
-var express = require('express');
-var fs = require('fs');
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
 
-var port = 5000
+const port = 5000
 
-var app = express();
+const app = express();
 
-app.use(express.static(__dirname, './dist'));
+app.use(express.static(__dirname + '/dist'));
+
 
 app.get('*', (req, res) => {
- 	res.sendFile(path.join(__dirname, 'dist/index.html'));
+ 	res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
 
