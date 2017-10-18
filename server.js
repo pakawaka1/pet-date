@@ -1,12 +1,43 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
 
-const port = 5000
+
+const port = 5000;
+
+var db;
+
+MongoClient.connect("mongodb://dog:noinstructor2@ds121665.mlab.com:21665/pets", function(err, database) {
+  if(!err) {
+    console.log("We are connected");
+  }
+  db = database;
+});
+
 
 const app = express();
 
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.use(express.static(__dirname + '/dist'));
+
+
+app.get("/api/pets", function(req, res) {
+ 	db.collection('Pets').findOne({"name": "Sophie"}, function(err,item) {
+ 		console.log(item)
+ 		const temp1 = JSON.stringify(item);
+ 		console.log(temp1)
+ 		res.send(temp1);
+ 	});	
+});
+
+
 
 
 app.get('*', (req, res) => {
