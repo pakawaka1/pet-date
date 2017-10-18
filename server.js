@@ -21,7 +21,6 @@ MongoClient.connect("mongodb://dog:noinstructor2@ds121665.mlab.com:21665/pets", 
 const app = express();
 
 
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -36,8 +35,6 @@ app.get("/api/pets", function(req, res) {
  		res.send(temp1);
  	});	
 });
-
-
 
 
 app.get('*', (req, res) => {
