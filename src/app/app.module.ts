@@ -19,6 +19,10 @@ import { SortByPipe } from './pipes/sort-by.pipe';
 import { TermsComponent } from './terms/terms.component';
 import { FooterComponent } from './footer/footer.component';
 
+
+import { PetsService } from './services/pets.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +47,7 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
