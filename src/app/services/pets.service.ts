@@ -12,9 +12,8 @@ export class PetsService {
 		console.log('petsService');
 	}
 
-	//getPets() {
-	//	return this.http.get(apipath)
-	//		.map(res => res.json());
-	//
-	//	}
+	getPets() {
+		return this.http.get(this.apipath)
+			.map(res => res.json());
+	}
 }

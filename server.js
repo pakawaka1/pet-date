@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/dist'));
 
 
 app.get("/api/pets", function(req, res) {
- 	db.collection('Pets').findOne({"name": "Sophie"}, function(err,item) {
+ 	db.collection('Pets').find({"name": "Sophie"}, function(err,item) {
  		console.log(item)
  		const temp1 = JSON.stringify(item);
  		console.log(temp1)

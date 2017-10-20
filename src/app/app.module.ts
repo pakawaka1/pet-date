@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +43,7 @@ import { PetsService } from './services/pets.service';
     FooterComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

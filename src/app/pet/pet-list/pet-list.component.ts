@@ -1,49 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { PetsService } from '../../services/pets.service'
+import { Pet } from './pet-list'
+
 
 @Component({
   selector: 'app-pet-list',
   templateUrl: './pet-list.component.html',
   styleUrls: ['./pet-list.component.css']
 })
-export class PetListComponent implements OnInit {
-  sortFields = ["type", "size", "energy", "age", "rating"];
-  allPets = [
-    {
-      "photo": "../assets/img/petphotos/sophie.jpg",
-      "name": "Sophie",
-      "type": "Dog",
-      "id": "A12345",
-      "size": "Small",
-      "energy": "High",
-      "age": "2 yrs",
-      "rating": 4
-    },
-  {
-    "photo": "../assets/img/petphotos/pup6.jpg",
-    "name": "Sienna",
-    "type": "Dog",
-    "id": "A12346",
-    "size": "Medium",
-    "energy": "Medium",
-    "age": "10 yrs",
-    "rating": 5
-  },
-  {
-    "photo": "../assets/img/petphotos/80.jpg",
-    "name": "Tinta",
-    "type": "Cat",
-    "id": "A12347",
-    "size": "Medium",
-    "energy": "Medium",
-    "age": "4 yrs",
-    "rating": 4
-  },
-];
 
-  constructor() { }
+ export class PetListComponent {
+     sortField = ["type", "size", "energy", "age", "rating"];
+     pet: Pet;
+     allPets: Pet[];
 
-  ngOnInit() {
-    
-  }
-
-}
+     constructor(private petsService: PetsService) {
+         this.petsService.getPets()
+             .subscribe(pet => {
+                this.pet = pet;
+             })
+          console.log(this.pet)
+     }
+ }
