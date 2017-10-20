@@ -40,6 +40,8 @@
           </div>
         </div>
       </div>
+      {{ pet.name }}
+
       <table class="table" *ngIf="allPets">
         <thead>
           <th></th>
@@ -73,7 +75,7 @@
             <td>{{pet.age}}</td>
             <td>{{pet.rating}}</td>
             <td><a href="#">Schedule</a></td>
-          </tr>
+        </tr>
       </table>
     </div>
   </div>

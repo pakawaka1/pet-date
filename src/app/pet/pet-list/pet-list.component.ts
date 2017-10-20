@@ -9,14 +9,21 @@ import { Pet } from './pet-list'
   styleUrls: ['./pet-list.component.css']
 })
 
- export class PetListComponent {
+ export class PetListComponent implements OnInit {
+
+
+
      sortField = ["type", "size", "energy", "age", "rating"];
      pet: Pet;
      allPets: Pet[];
 
      constructor(private petsService: PetsService) {
-         this.petsService.getPets()
-             .subscribe(pet => {
+         
+     }
+
+     ngOnInit () {
+        this.petsService.getPets()
+            .subscribe(pet => {
                 this.pet = pet;
              })
           console.log(this.pet)

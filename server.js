@@ -28,8 +28,8 @@ app.use(express.static(__dirname + '/dist'));
 
 
 app.get("/api/pets", function(req, res) {
- 	db.collection('Pets').find({"name": "Sophie"}, function(err,item) {
- 		console.log(item)
+ 	db.collection('Pets').find({}, function(err,item) {
+ 		console.log(item);
  		const temp1 = JSON.stringify(item);
  		console.log(temp1)
  		res.send(temp1);
