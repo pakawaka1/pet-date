@@ -54,7 +54,7 @@
           <th>Rating</th>
           <th>Schedule</th>
         </thead>
-        <!-- <tr *ngFor="let pet of allPets sortBy: [sortField, sortDirection]">
+        <tr *ngFor="let pet of allPets | sortBy: [sortField, sortDirection]">
           <td class="image"><img src="{{pet.photo}}"></td>
           <td><b>{{pet.name}}</b></td>
           <td>{{pet.id}}</td>
@@ -64,7 +64,7 @@
           <td>{{pet.age}}</td>
           <td>{{pet.rating}}</td>
           <td><a href="#">Schedule</a></td>
-        </tr> -->
+        </tr>
         <tr>
           <td class="image"><img src="{{pet.photo}}"></td>
             <td><b>{{pet.name}}</b></td>
