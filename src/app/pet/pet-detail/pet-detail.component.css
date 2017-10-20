@@ -1,22 +1,22 @@
-.pet-photo {
+h1 {
+  font-size: 60px;
+  padding: 10px;
+}
+.photo {
   padding: 20px;
 }
 
 button {
   background-color: blue;
   color: white;
+  padding: 10px;
+  margin: 20px;
 }
+
 p {
   margin-top: 20px;
   font-size: 20px;
   font-family: sans-serif;
   font-weight: 20;
-}
-
-.profile-photo {
-  padding: 20px;
-}
-
-.walker-profile {
-  margin: 20px;
+  padding-left: 20px;
 }
