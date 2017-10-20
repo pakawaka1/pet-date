@@ -28,12 +28,23 @@ app.use(express.static(__dirname + '/dist'));
 
 
 app.get("/api/pets", function(req, res) {
- 	db.collection('Pets').find({}, function(err,item) {
- 		console.log(item);
- 		const temp1 = JSON.stringify(item);
- 		console.log(temp1)
- 		res.send(temp1);
- 	});	
+	pets = [];
+	cursor = db.collection('Pets').find();
+
+	cursor.each((err, doc) => {
+		if (doc != null) {
+			pets.push(doc);
+		} else {
+			res.send(pets);
+		}
+	})
+	//console.log(allPetsArray);
+ 	//db.collection('Pets').findOne({'name': 'Sophie'}, function(err,item) {
+ 		//console.log(item.toArray());
+ 		//const temp1 = JSON.stringify(item);
+ 		//console.log(temp1)
+ 		//res.send(temp1);
+ 	//});	
 });
 
 

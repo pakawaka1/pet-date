@@ -11,8 +11,6 @@ import { Pet } from './pet-list'
 
  export class PetListComponent implements OnInit {
 
-
-
      sortField = ["type", "size", "energy", "age", "rating"];
      pet: Pet;
      allPets: Pet[];
@@ -23,9 +21,9 @@ import { Pet } from './pet-list'
 
      ngOnInit () {
         this.petsService.getPets()
-            .subscribe(pet => {
-                this.pet = pet;
+            .subscribe(allPets => {
+                this.allPets = allPets;
              })
-          console.log(this.pet)
+          console.log(this.allPets[0])
      }
  }
