@@ -11,12 +11,12 @@ import { Pet } from './pet-list'
 
  export class PetListComponent implements OnInit {
 
-     sortField = ["type", "size", "energy", "age", "rating"];
+     sortFields = ["type", "size", "energy", "age", "rating"];
      pet: Pet;
      allPets: Pet[];
 
      constructor(private petsService: PetsService) {
-         
+
      }
 
      ngOnInit () {

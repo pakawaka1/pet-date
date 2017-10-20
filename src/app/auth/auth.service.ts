@@ -9,7 +9,7 @@ export class AuthService {
   options;
   authToken;
   user;
-  domain = "localhost://8080";
+  apipath = '/api/user';
 
   constructor(
     private http: Http
@@ -30,11 +30,11 @@ loadToken() {
 }
 
 registerUser(user){
-  return this.http.post(this.domain + 'auth/register', user).map(res => res.json());
+  return this.http.post(this.apipath + 'auth/register', user).map(res => res.json());
 }
 
 login(user) {
-  return this.http.post(this.domain + 'auth/login', user).map(res => res.json());
+  return this.http.post(this.apipath + '/login', user).map(res => res.json());
 }
 
 logout() {
@@ -52,7 +52,7 @@ storeUserData(token, user) {
 
 getProfile(id) {
   this.createAuthenticationHeaders();
-  return this.http.get(this.domain + 'auth/profile', this.options).map(res => res.json());
+  return this.http.get(this.apipath + 'auth/profile', this.options).map(res => res.json());
 }
 
 loggedIn() {

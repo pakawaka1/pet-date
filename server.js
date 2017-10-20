@@ -44,9 +44,21 @@ app.get("/api/pets", function(req, res) {
  		//const temp1 = JSON.stringify(item);
  		//console.log(temp1)
  		//res.send(temp1);
- 	//});	
+ 	//});
 });
 
+app.post("/api/user", function (req, res) {
+  const email = req.body.email;
+  db.collection('Users').findOne({'email': email}, function(err, item) {
+    const user = {
+      username: item.username,
+      firstName: item.firstName,
+      lastName: item.lastName,
+      email: item.email,
+    };
+    res.send(user);
+  });
+});
 
 app.get('*', (req, res) => {
  	res.sendFile(path.join(__dirname + '/dist/index.html'));
