@@ -38,14 +38,42 @@ app.get("/api/pets", function(req, res) {
 			res.send(pets);
 		}
 	})
-	//console.log(allPetsArray);
- 	//db.collection('Pets').findOne({'name': 'Sophie'}, function(err,item) {
- 		//console.log(item.toArray());
- 		//const temp1 = JSON.stringify(item);
- 		//console.log(temp1)
- 		//res.send(temp1);
- 	//});
 });
+
+app.get("/api/pet", function(req, res) {
+	//const name = 'req.body.name';
+	const name = 'Sophie';
+	db.collection('Pets').findOne({'name': name}, function(err, item) {
+		console.log(item);
+		const pet = {
+			photo: item.photo,
+			name: item.name,
+			type: item.type,
+			id: item.id,
+			size: item.size,
+			energy: item.energy,
+			age: item.age,
+			rating: item.rating
+		};
+		res.send(pet)
+	});
+});
+
+app.get("/api/user", function(req, res) {
+	//const email = req.body.email;
+	//const password = req.body.password;
+	const email = req.body.email;
+	const name = 'Noah';
+	db.collection('Users').findOne({'email': email}, function(err, item) {
+		const user = {
+      		username: item.username,
+      		firstName: item.firstName,
+      		lastName: item.lastName,
+      		email: item.email,
+    	};
+	})
+})
+
 
 app.post("/api/user", function (req, res) {
   const email = req.body.email;
@@ -59,6 +87,7 @@ app.post("/api/user", function (req, res) {
     res.send(user);
   });
 });
+
 
 app.get('*', (req, res) => {
  	res.sendFile(path.join(__dirname + '/dist/index.html'));
