@@ -2,58 +2,46 @@
 	<div class="row form-section">
 		<div class="col-md-6 col-md-offset-3 fix">
 			<form>
-				<div class="form-group email">
-					<div class="row">
+				<div class="form-group" [formGroup]="form" (submit)="onCreateSubmit()">
+					<div class="row email">
 						<label>Email</label>
+						<input class="form-in" type="email" id="emailInput" placeholder="Username" name="email" formControlName="email">
 					</div>
-					<input class="form-in" type="email" id="emailInput" placeholder="Username">
-				</div>
-				<div class="form-group username">
-					<div class="row">
+					<div class="row username">
 						<label>Usernanme</label>
+						<input class="form-in" type="email" id="emailInput" placeholder="Username" name="username" formControlName="username">
 					</div>
-					<input class="form-in" type="email" id="emailInput" placeholder="Username">
-				</div>
-				<div class="form-group name">
-					<div class="row">
+					<div class="row name">
 						<div class="col-md-6 firstname">
 							<div class="row">
-							<label>First Name</label>
+								<label>First Name</label>
+								<input class="form-in" type="firstName" id="firstNameInput" placeholder="First Name" name="firstname" formControlName="firstname">
 							</div>
-							<input class="form-in" type="firstName" id="firstNameInput" placeholder="First Name">
 						</div>
 						<div class="col-md-6">
 							<div class="row">
-							<label>Last Name</label>
+								<label>Last Name</label>
+								<input type="lastName" id="lastNameInput" placeholder="Last Name" name="lastname" formControlName="lastname">
 							</div>
-							<input type="lastName" id="lastNameInput" placeholder="Last Name">
 						</div>
 					</div>
-				</div>
-				<div class="form-group phonenumber">
-					<div class="row">
-					<label>Phone Number</label>
+					<div class="row phonenumber">
+						<label>Phone Number</label>
+						<input class="form-in" type="phoneNumber" id="phoneNumberInput" placeholder="(123)4567890" name="phonenumber" formControlName="phonenumber">
+						<small id="emailHelp" class="form-text text-muted"> Optional </small>
 					</div>
-					<input class="form-in" type="phoneNumber" id="phoneNumberInput" placeholder="(123)4567890">
-					<small id="emailHelp" class="form-text text-muted"> Optional </small>
-				</div>
-				<div class="form-group password">
-					<div class="row">
+					<div class="row password">
 						<label>Password</label>
+						<input class="form-in" type="password" id="password" name="password" formControlName="password">
+						<small id="emailHelp" class="form-text text-muted"> Password must be (3-16) containing only letter, digits and underscores.</small>
 					</div>
-					<input class="form-in" type="password" id="password">
-					<small id="emailHelp" class="form-text text-muted"> Password must be (3-16) containing only letter, digits and underscores.</small>
-				</div>
-				<div class="form-group password">
-					<div class="row">
+					<div class="row password">
 						<label>Re-type Password</label>
+						<input class="form-in" type="password" id="passwordMatch" name="repassword" formControlName="repassword">
+						<small id="emailHelp" class="form-text text-muted"> Password must match.</small>
 					</div>
-					<input class="form-in" type="password" id="passwordMatch">
-					<small id="emailHelp" class="form-text text-muted"> Password must match.</small>
-				</div>
-				<div class="form-group">
 					<div class="row">
-						<div class="col-md-3 col-md-offset-9">
+						<div class="col-md-3 col-md-offset-9" value="Create">
 							<button type="button" class="btn btn-light">Create Account</button>
 						</div>
 					</div>
