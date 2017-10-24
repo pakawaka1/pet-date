@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IHistory } from './ihistory';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,7 +12,8 @@ export class UserProfileComponent implements OnInit {
   email: String;
   history = Array();
 
-  constructor() {
+  constructor(private authService: AuthService) {
+
   }
 
   ngOnInit() {
@@ -20,9 +22,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   private getUserInfo() {
-    // Here is where we would accept session user record.
-    this.username = 'Jim';
-    this.email = 'jim@go.com';
+    // Here is where we would accept session user record
+
+    this.username = this.authService.user.username;
+    this.email = this.authService.user.email;
   }
 
   private getHistory() {

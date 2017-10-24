@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PetsService } from '../../services/pets.service'
-import { Pet } from './pet-list'
+import { PetsService } from '../../services/pets.service';
+import { Pet } from './pet-list';
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({
@@ -14,12 +15,17 @@ import { Pet } from './pet-list'
      sortFields = ["type", "size", "energy", "age", "rating"];
      pet: Pet;
      allPets: Pet[];
+     loggedin = false;
 
-     constructor(private petsService: PetsService) {
+     constructor(
+       private petsService: PetsService,
+       private authService: AuthService
+     ) {
 
      }
 
      ngOnInit () {
+        this.loggedin = this.authService.user;
         this.petsService.getPets()
             .subscribe(allPets => {
                 this.allPets = allPets;

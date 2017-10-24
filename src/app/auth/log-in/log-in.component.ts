@@ -52,6 +52,7 @@ export class LogInComponent implements OnInit {
     this.authService.login(user).subscribe(data => {
       console.log("auth service response " + data);
       if(data){
+        this.authService.storeUserData(data);
         console.log('data was found');
       } else {
         console.log('no data here');

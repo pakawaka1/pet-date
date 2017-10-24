@@ -35,8 +35,7 @@ registerUser(user){
 
 login(user) {
   console.log("in auth service");
-  console.dir(user);
-  return this.http.post(this.apipath, user).map(res => res.json());
+  return this.http.post(this.apipath + '/login', user).map(res => res.json());
 }
 
 logout() {
@@ -46,9 +45,9 @@ logout() {
 }
 
 storeUserData(token, user) {
-  localStorage.setItem('token', token);
+  //localStorage.setItem('token', token);
   localStorage.setItem('user', JSON.stringify(user));
-  this.authToken = token;
+  //this.authToken = token;
   this.user = user;
 }
 
