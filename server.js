@@ -59,20 +59,19 @@ app.get("/api/pet", function(req, res) {
 	});
 });
 
-app.get("/api/user", function(req, res) {
-	//const email = req.body.email;
-	//const password = req.body.password;
-	const email = req.body.email;
-	const name = 'Noah';
-	db.collection('Users').findOne({'email': email}, function(err, item) {
+app.get("/api/user/profile", function(req, res) {
+  console.log("arrived back at serverjs");
+  console.log(req.body);
+	db.collection('Users').findOne({'email': req.body.email}, function(err, item) {
 		const user = {
       		username: item.username,
       		firstName: item.firstName,
       		lastName: item.lastName,
       		email: item.email,
     	};
-	})
-})
+    res.send(user);
+	});
+});
 
 
 app.post("/api/user", function (req, res) {

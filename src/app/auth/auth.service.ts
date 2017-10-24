@@ -34,6 +34,7 @@ registerUser(user){
 }
 
 login(user) {
+  console.log("in auth service");
   return this.http.post(this.apipath + '/login', user).map(res => res.json());
 }
 
@@ -52,7 +53,7 @@ storeUserData(token, user) {
 
 getProfile(id) {
   this.createAuthenticationHeaders();
-  return this.http.get(this.apipath + 'auth/profile', this.options).map(res => res.json());
+  return this.http.get(this.apipath + '/profile', this.options).map(res => res.json());
 }
 
 loggedIn() {

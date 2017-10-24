@@ -22,7 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 
 
 import { PetsService } from './services/pets.service';
-import { UsersService } from './services/users.service';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -50,7 +50,7 @@ import { UsersService } from './services/users.service';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [PetsService, UsersService],
+  providers: [PetsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-log-in',
@@ -11,7 +14,9 @@ export class LogInComponent implements OnInit {
   processing;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
 
   ) {
     this.createForm();
@@ -37,10 +42,21 @@ export class LogInComponent implements OnInit {
    onLoginSubmit() {
     this.processing = true;
     this.disableForm();
+    console.log("successfully clicked button")
     const user = {
       email: this.form.get('email').value,
       password: this.form.get('password').value
     };
+    this.authService.login(user).subscribe(data => {
+      console.log(user);
+      if(data.success){
+        this.authService.storeUserData(data.token, data.user);
+        setTimeout(() => {{
+            this.router.navigate(['/profile']);
+          }
+        }, 2000);
+      }
+    })
     console.log(user);
     this.processing = false;
     this.form.reset()
