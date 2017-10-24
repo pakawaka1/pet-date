@@ -35,7 +35,8 @@ registerUser(user){
 
 login(user) {
   console.log("in auth service");
-  return this.http.post(this.apipath + '/login', user).map(res => res.json());
+  console.dir(user);
+  return this.http.post(this.apipath, user).map(res => res.json());
 }
 
 logout() {

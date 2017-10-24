@@ -76,13 +76,18 @@ app.get("/api/user/profile", function(req, res) {
 
 app.post("/api/user", function (req, res) {
   const email = req.body.email;
+  console.log("req body email: " + email);
   db.collection('Users').findOne({'email': email}, function(err, item) {
+    console.log("back from Mongodb" + item);
+    console.dir(item);
     const user = {
       username: item.username,
       firstName: item.firstName,
       lastName: item.lastName,
       email: item.email,
     };
+    console.log("user being sent is: " + user);
+    console.dir(user);
     res.send(user);
   });
 });
