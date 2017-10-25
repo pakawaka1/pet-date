@@ -23,7 +23,7 @@ export class AuthService {
       'Content-Type': 'application/json',
       'authorization': this.authToken
     })
-  })
+  });
 }
 
 loadToken() {
