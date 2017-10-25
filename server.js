@@ -4,6 +4,7 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectID;
 
 
 const port = 5000;
@@ -40,22 +41,26 @@ app.get("/api/pets", function(req, res) {
 	})
 });
 
-app.get("/api/pet", function(req, res) {
-	//const name = 'req.body.name';
-	const name = 'Sophie';
-	db.collection('Pets').findOne({'name': name}, function(err, item) {
-		console.log(item);
-		const pet = {
-			photo: item.photo,
-			name: item.name,
-			type: item.type,
-			id: item.id,
-			size: item.size,
-			energy: item.energy,
-			age: item.age,
-			rating: item.rating
-		};
-		res.send(pet)
+app.get("/api/pet/:id", function(req, res) {
+	const id = req.params.id;
+	console.log(id);
+	db.collection('Pets').findOne({"_id": ObjectId(id)}, function(err, item) {
+		if (err) {
+			res.send(err);
+		} else {
+			console.log(item);
+			const pet = {
+				photo: item.photo,
+				name: item.name,
+				type: item.type,
+				id: item.id,
+				size: item.size,
+				energy: item.energy,
+				age: item.age,
+				rating: item.rating
+			};
+			res.send(pet);
+		}
 	});
 });
 
