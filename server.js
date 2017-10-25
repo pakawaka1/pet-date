@@ -74,6 +74,54 @@ app.get("/api/user/profile", function(req, res) {
 });
 
 
+app.post("/api/user/auth/register", function(req,res) {
+	console.log("Got here")
+	db.collection('Users').findOne({'email': req.body.email}, function(err, item) {
+		if(err) {
+			console.log(err);
+		} else {
+			if (item != null) {
+				res.send("1")
+			} else {
+				db.collection('Users').findOne({'username': req.body.username}, function(err, item) {
+					if(err) {
+						console.log(err);
+					} else {
+						if (item != null) {
+							res.send("2")
+						} else {
+							if (!req.body.password.match("^[A-Za-z0-9]{6,16}$")) {
+								res.send("3");
+							} else { 
+								if (req.body.password != req.body.repassword) {
+									res.send("4");
+								} else {
+									const user = {
+										email: req.body.email,
+				      					firstName: req.body.firstname,
+				      					lastName: req.body.lastname,
+				      					phone: req.body.phonenumber,
+				      					username: req.body.username,
+										password: req.body.password
+				      					
+				    				};
+				    				db.collection('Users').insertOne(user, function(err, item){
+				    					if (err) {
+				    						res.send("5");
+				    					} else {
+				    						res.send("0");
+				    					}
+				    				});
+								}
+							}
+						}
+					}	
+				});
+			}
+		}
+	});
+});
+
 app.post("/api/user", function (req, res) {
   const email = req.body.email;
   console.log("req body email: " + email);
