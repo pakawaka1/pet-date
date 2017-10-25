@@ -24,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PetsService } from './services/pets.service';
 import { AuthService } from './auth/auth.service';
 import { PetService } from './pet/pet.service';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { PetService } from './pet/pet.service';
     LandingComponent,
     SortByPipe,
     TermsComponent,
-    FooterComponent
+    FooterComponent,
+    LogoutComponent
   ],
   imports: [
     HttpModule,

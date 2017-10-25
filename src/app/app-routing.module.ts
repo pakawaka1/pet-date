@@ -14,6 +14,7 @@ import { PetDetailComponent } from './pet/pet-detail/pet-detail.component';
 import { PetListComponent } from './pet/pet-list/pet-list.component';
 import { LandingComponent } from './landing/landing.component';
 import { TermsComponent } from './terms/terms.component';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'pet-detail', component: PetDetailComponent},
   {path: 'schedule', component: PetScheduleComponent},
   {path: 'terms', component: TermsComponent },
+  {path: 'logout', component: LogoutComponent }
   // {path: '*', redirectTo: ''},
 ];
 

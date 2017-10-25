@@ -1,0 +1,13 @@
+.jumbotron {
+  background-image: url("/assets/img/petwalk1.jpg");
+  background-size: cover;
+  height: calc(100vh - 50px);
+  margin: 0;
+  padding: 0;
+}
+
+p.centerbig  {
+  font-size: 3em;
+  text-align: center;
+  font-weight: bolder;
+}
