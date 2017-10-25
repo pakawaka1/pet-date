@@ -32,7 +32,8 @@ export class SignupComponent implements OnInit {
      });
    }
 
-   onLoginSubmit() {
+   onCreateSubmit() {
+   console.log("Got here")
     const user = {
       email: this.form.get('email').value,
       username: this.form.get('username').value,
@@ -42,10 +43,10 @@ export class SignupComponent implements OnInit {
       password: this.form.get('password').value,
       repassword: this.form.get('repassword').value
     };
-
     this.authService.registerUser(user).subscribe(data => {
+      console.log(data)
       if (data == "0") {
-        ;
+        this.router.navigate(['/']);
       } else if (data == "1") {
         ;
       } else if (data == "2") {

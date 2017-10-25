@@ -1,21 +1,20 @@
 <div class="container">
 	<div class="row form-section">
 		<div class="col-md-6 col-md-offset-3 fix">
-			<form>
-				<div class="form-group" [formGroup]="form" (submit)="onCreateSubmit()">
+			<form class="form-group" [formGroup]="form" (submit)="onCreateSubmit()">
 					<div class="row email">
 						<label>Email</label>
-						<input class="form-in" type="email" id="emailInput" placeholder="Username" name="email" formControlName="email">
+						<input class="form-control" type="email" id="emailInput" placeholder="Username" name="email" formControlName="email">
 					</div>
 					<div class="row username">
 						<label>Usernanme</label>
-						<input class="form-in" type="email" id="emailInput" placeholder="Username" name="username" formControlName="username">
+						<input class="form-control" type="email" id="emailInput" placeholder="Username" name="username" formControlName="username">
 					</div>
 					<div class="row name">
 						<div class="col-md-6 firstname">
 							<div class="row">
 								<label>First Name</label>
-								<input class="form-in" type="firstName" id="firstNameInput" placeholder="First Name" name="firstname" formControlName="firstname">
+								<input class="form-control" type="firstName" id="firstNameInput" placeholder="First Name" name="firstname" formControlName="firstname">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -27,25 +26,25 @@
 					</div>
 					<div class="row phonenumber">
 						<label>Phone Number</label>
-						<input class="form-in" type="phoneNumber" id="phoneNumberInput" placeholder="(123)4567890" name="phonenumber" formControlName="phonenumber">
+						<input class="form-control" type="phoneNumber" id="phoneNumberInput" placeholder="(123)4567890" name="phonenumber" formControlName="phonenumber">
 						<small id="emailHelp" class="form-text text-muted"> Optional </small>
 					</div>
 					<div class="row password">
 						<label>Password</label>
-						<input class="form-in" type="password" id="password" name="password" formControlName="password">
+						<input class="form-control" type="password" id="password" name="password" formControlName="password">
 						<small id="emailHelp" class="form-text text-muted"> Password must be (3-16) containing only letter, digits and underscores.</small>
 					</div>
 					<div class="row password">
 						<label>Re-type Password</label>
-						<input class="form-in" type="password" id="passwordMatch" name="repassword" formControlName="repassword">
+						<input class="form-control" type="password" id="passwordMatch" name="repassword" formControlName="repassword">
 						<small id="emailHelp" class="form-text text-muted"> Password must match.</small>
 					</div>
 					<div class="row">
-						<div class="col-md-3 col-md-offset-9" value="Create">
-							<button type="button" class="btn btn-light">Create Account</button>
+						<div class="col-md-3 col-md-offset-9">
+							<button type="submit" class="btn btn-light" value="Create">Create Account</button>
 						</div>
 					</div>
-				</div>
+
 			</form>
 		</div>
 	</div>

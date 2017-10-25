@@ -31,7 +31,7 @@ loadToken() {
 }
 
 registerUser(user){
-  return this.http.post(this.apipath + 'auth/register', user).map(res => res.json());
+  return this.http.post(this.apipath + '/auth/register', user).map(res => res.json());
 }
 
 login(user) {
