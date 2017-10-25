@@ -74,6 +74,40 @@ app.get("/api/user/profile", function(req, res) {
 });
 
 
+app.post("/api/user/auth/register", function(req,res) {
+	if(db.collection('Users').findOne({'email': req.body.email})) {
+		res.send("1");
+	} else {
+		if(db.collection('Users').findOne({'username': req.body.username})){
+			res.send("2");
+		} else {
+			if (!req.body.password.match("^[A-Za-z0-9]{6,16}$")) {
+				res.send("3");
+			} else { 
+				if (req.body.password != req.body.repassword) {
+					res.send("4");
+				} else {
+					const user = {
+      					username: req.body.username,
+      					firstName: req.body.firstName,
+      					lastName: req.body.lastName,
+      					email: req.body.email,
+      					password: req.body.password,
+      					phone: req.body.phonenumber
+    				};
+    				db.collection('Users').insertOne(user, function(err, item){
+    					if (err) {
+    						res.send("5");
+    					} else {
+    						res.send("0");
+    					}
+    				});
+				}
+			} 
+		}
+	}
+});
+
 app.post("/api/user", function (req, res) {
   const email = req.body.email;
   console.log("req body email: " + email);
