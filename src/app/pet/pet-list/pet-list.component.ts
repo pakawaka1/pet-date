@@ -3,6 +3,7 @@ import { NgClass } from '@angular/common';
 import { PetsService } from '../../services/pets.service';
 import { Pet } from './pet-list';
 import { AuthService } from '../../auth/auth.service';
+import { PetService } from '../pet.service'
 
 
 @Component({
@@ -20,6 +21,7 @@ import { AuthService } from '../../auth/auth.service';
 
      constructor(
        private petsService: PetsService,
+       private petService: PetService,
        private authService: AuthService
      ) {
 
@@ -27,7 +29,7 @@ import { AuthService } from '../../auth/auth.service';
 
      ngOnInit () {
         this.loggedin = this.authService.getCurrentUser()
-        this.petsService.getPets()
+        this.petService.getPets()
             .subscribe(allPets => {
                 this.allPets = allPets;
              })

@@ -25,24 +25,24 @@ export class PetService {
     })
   }
 
-  getAllPets(){
-    this.createAuthenticationHeaders();
-    return this.http.get(this.apipath + 'pets/allPets', this.options).map(res => res.json());
+  getPets(){
+    //this.createAuthenticationHeaders();
+    return this.http.get(this.apipath + 's', this.options).map(res => res.json());
   }
 
   getOnePet(id){
-    this.createAuthenticationHeaders();
-    return this.http.get(this.apipath + 'pets/onePet/' + id, this.options).map(res => res.json());
+    //this.createAuthenticationHeaders();
+    return this.http.get(this.apipath + id, this.options).map(res => res.json());
   }
 
   postComment(id, comment){
-    this.createAuthenticationHeaders();
+    //this.createAuthenticationHeaders();
     const petData = {id: id, review: comment};
     return this.http.post(this.apipath + 'pets/comment', petData, this.options).map(res => res.json());
   }
 
   schedulePet(id, dateSched){
-    this.createAuthenticationHeaders();
+    //this.createAuthenticationHeaders();
     const petData = {id: id, dateSched: dateSched};
     return this.http.post(this.apipath + 'pets/schedule', petData, this.options).map(res => res.json());
   }
