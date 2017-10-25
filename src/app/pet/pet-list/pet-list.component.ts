@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { PetsService } from '../../services/pets.service';
 import { Pet } from './pet-list';
 import { AuthService } from '../../auth/auth.service';
@@ -30,6 +31,6 @@ import { AuthService } from '../../auth/auth.service';
             .subscribe(allPets => {
                 this.allPets = allPets;
              })
-          console.log(this.allPets[0])
+          // console.log(this.allPets[0])
      }
  }

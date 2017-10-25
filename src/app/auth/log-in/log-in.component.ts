@@ -42,18 +42,18 @@ export class LogInComponent implements OnInit {
    onLoginSubmit() {
     this.processing = true;
     this.disableForm();
-    console.log("successfully clicked button");
-    console.log("email from form " + this.form.get('email').value);
+    // console.log("successfully clicked button");
+    // console.log("email from form " + this.form.get('email').value);
     const user = {
       email: this.form.get('email').value,
       password: this.form.get('password').value
     };
-    console.log("user email is: " + user.email);
+    // console.log("user email is: " + user.email);
     this.authService.login(user).subscribe(data => {
-      console.log("auth service response " + data);
+      // console.log("auth service response " + data);
       if(data){
         this.authService.storeUserData(data);
-        console.log('data was found');
+        // console.log('data was found');
       } else {
         console.log('no data here');
       }

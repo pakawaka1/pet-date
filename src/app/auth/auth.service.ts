@@ -35,7 +35,7 @@ registerUser(user){
 }
 
 login(user) {
-  console.log("in auth service");
+  // console.log("in auth service");
   return this.http.post(this.apipath, user).map(res => res.json());
 }
 
@@ -47,7 +47,7 @@ logout() {
 
 storeUserData(user) {
   //localStorage.setItem('token', token);
-  localStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem("user",JSON.stringify(user));
   //this.authToken = token;
   this.user = user;
 }
@@ -62,16 +62,20 @@ loggedIn() {
 }
 
 getCurrentUser() {
-  let user:any = localStorage.getItem('user');
+  // let user:any = localStorage.getItem("user");
+  let user:any  = JSON.parse(localStorage.getItem("user"));
+  console.log(typeof(user));
   let result:any = {
     "username":"",
     "firstName":"",
     "lastName":"",
-    "email":""
+    "email":"",
+    "valid": false
   };
 
   if ( user ) {
-    result = user
+    // user.valid = true;
+    result = user;
   }
   return result;
 }
