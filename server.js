@@ -18,15 +18,10 @@ MongoClient.connect("mongodb://dog:noinstructor2@ds121665.mlab.com:21665/pets", 
   db = database;
 });
 
-
 const app = express();
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(express.static(__dirname + '/dist'));
-
 
 app.get("/api/pets", function(req, res) {
 	pets = [];
@@ -78,7 +73,6 @@ app.get("/api/user/profile", function(req, res) {
 	});
 });
 
-
 app.post("/api/user/auth/register", function(req,res) {
 	console.log("Got here")
 	db.collection('Users').findOne({'email': req.body.email}, function(err, item) {
@@ -97,7 +91,7 @@ app.post("/api/user/auth/register", function(req,res) {
 						} else {
 							if (!req.body.password.match("^[A-Za-z0-9]{6,16}$")) {
 								res.send("3");
-							} else { 
+							} else {
 								if (req.body.password != req.body.repassword) {
 									res.send("4");
 								} else {
@@ -108,7 +102,7 @@ app.post("/api/user/auth/register", function(req,res) {
 				      					phone: req.body.phonenumber,
 				      					username: req.body.username,
 										password: req.body.password
-				      					
+
 				    				};
 				    				db.collection('Users').insertOne(user, function(err, item){
 				    					if (err) {
@@ -120,7 +114,7 @@ app.post("/api/user/auth/register", function(req,res) {
 								}
 							}
 						}
-					}	
+					}
 				});
 			}
 		}
@@ -145,10 +139,40 @@ app.post("/api/user", function (req, res) {
   });
 });
 
+/* Api call, to return all history records for all users. */
+app.get("/api/history", function(req, res) {
+  let hist = [];
+  let cursor = db.collection('history').find();
+
+  cursor.each((err, doc) => {
+    if (doc != null) {
+      hist.push(doc);
+    } else {
+      res.send(hist);
+    }
+  });
+});
+
+/* Api call, to return all history records for ONE users. */
+app.get("/api/history/:id", function(req, res) {
+  let hist = [];
+  let userid = req.params.id;
+  let cursor = db.collection('history').find({user_id:ObjectId(userid)});
+  // Example call:
+  // db.getCollection('history').find({user_id:ObjectId("59f10d76fda7d403d82e75cd")})
+
+  cursor.each((err, doc) => {
+    if (doc != null) {
+      hist.push(doc);
+    } else {
+      res.send(hist);
+    }
+  });
+});
+
 app.get('*', (req, res) => {
  	res.sendfile(path.join(__dirname + '/dist/index.html'));
 });
-
 
 app.listen(port, function(){
 	console.log("Server is running on port " + port);
