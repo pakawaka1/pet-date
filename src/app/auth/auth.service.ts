@@ -4,6 +4,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 
 import 'rxjs/add/operator/map';
 
+// TODO: Add tokens to this service.
 @Injectable()
 export class AuthService {
   options;
@@ -60,5 +61,19 @@ loggedIn() {
   return tokenNotExpired();
 }
 
+getCurrentUser() {
+  let user:any = localStorage.getItem('user');
+  let result:any = {
+    "username":"",
+    "firstName":"",
+    "lastName":"",
+    "email":""
+  };
+
+  if ( user ) {
+    result = user
+  }
+  return result;
+}
 
 }

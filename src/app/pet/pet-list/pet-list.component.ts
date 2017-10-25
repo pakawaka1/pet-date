@@ -25,7 +25,7 @@ import { AuthService } from '../../auth/auth.service';
      }
 
      ngOnInit () {
-        this.loggedin = this.authService.user;
+        this.loggedin = this.authService.getCurrentUser()
         this.petsService.getPets()
             .subscribe(allPets => {
                 this.allPets = allPets;

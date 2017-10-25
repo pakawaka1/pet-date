@@ -92,9 +92,8 @@ app.post("/api/user", function (req, res) {
   });
 });
 
-
 app.get('*', (req, res) => {
- 	res.sendFile(path.join(__dirname + '/dist/index.html'));
+ 	res.sendfile(path.join(__dirname + '/dist/index.html'));
 });
 
 
