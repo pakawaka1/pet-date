@@ -70,7 +70,7 @@ getCurrentUser() {
     "firstName":"",
     "lastName":"",
     "email":"",
-    "valid": false
+    //"valid": false
   };
 
   if ( user ) {
