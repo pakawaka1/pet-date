@@ -62,21 +62,18 @@ loggedIn() {
 }
 
 getCurrentUser() {
-  // let user:any = localStorage.getItem("user");
   let user:any  = JSON.parse(localStorage.getItem("user"));
-  console.log(typeof(user));
   let result:any = {
     "username":"",
     "firstName":"",
     "lastName":"",
     "email":"",
-    "valid": false
   };
 
   if ( user ) {
-    // user.valid = true;
     result = user;
   }
+  console.log(result);
   return result;
 }
 
