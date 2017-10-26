@@ -1,12 +1,22 @@
+h1 {
+  font-size: 60px;
+}
+
 img {
   width: 100%;
   height: auto;
 }
 
-.table>tbody>tr>td {
+/*.table>tbody>tr>td {
   font-size: 1.25em;
-  /*width: 100px;*/
+  /width: 100px;/
   vertical-align: middle;
+  text-align: center;
+}*/
+
+th, td {
+  font-size: 15px;
+  text-align: center;
 }
 
 .image {
