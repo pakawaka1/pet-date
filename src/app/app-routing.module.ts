@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'profile', component: UserProfileComponent},
   {path: 'pets', component: PetListComponent},
   {path: 'pet-detail', component: PetDetailComponent},
-  {path: 'schedule', component: PetScheduleComponent},
+  {path: 'schedule/:id', component: PetScheduleComponent},
   {path: 'terms', component: TermsComponent },
   {path: 'logout', component: LogoutComponent },
   {path: 'history', component: HistoryComponent }

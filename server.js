@@ -59,6 +59,29 @@ app.get("/api/pet/:id", function(req, res) {
 	});
 });
 
+app.get("/api/schedule/:id", function(req, res) {
+	const id = req.params.id;
+	console.log(id);
+	db.collection('Pets').findOne({"_id": ObjectId(id)}, function(err, item) {
+		if (err) {
+			res.send(err);
+		} else {
+			console.log(item);
+			const pet = {
+				photo: item.photo,
+				name: item.name,
+				type: item.type,
+				id: item.id,
+				size: item.size,
+				energy: item.energy,
+				age: item.age,
+				rating: item.rating
+			};
+			res.send(pet);
+		}
+	});
+});
+
 app.get("/api/user/profile", function(req, res) {
   console.log("arrived back at serverjs");
   console.log(req.body);
