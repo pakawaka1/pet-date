@@ -30,6 +30,7 @@ export class MenuComponent implements OnInit {
       this.items.push({name:'login', path:'/login'});
       this.items.push({name:'signup', path:'/register'});
     } else {
+      this.items.push({name:'profile', path:'/profile'});
       this.items.push({name:'logout', path:'/logout'});
     };
     console.log(this.loggedin);

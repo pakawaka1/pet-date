@@ -8,44 +8,37 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  userid: String ;
   username: String;
   email: String;
-  history = Array();
 
   constructor(private authService: AuthService) {
 
   }
 
   ngOnInit() {
-    this.getUserInfo();
-    this.getHistory();
+    this.userloggedin();
   }
 
-  private getUserInfo() {
-    // Here is where we would accept session user record
+  // Determine if a user is logged in.
+  // Return true if logged in.
+  private userloggedin():boolean {
+    let result = false;
+    this.username = '';
+    this.userid = '';
+    this.email = '';
 
-    this.username = this.authService.user.username;
-    this.email = this.authService.user.email;
-  }
-
-  private getHistory() {
-    let h:IHistory =
-      {pet:"fluffy", activity:'Grooming', date:'1/1/16', rate:4.5 };
-    this.history.push(h);
-
-    h = {pet:'Sam', date:'1/1/15', activity:'Walk', rate:5};
-    this.history.push(h);
-
-    h = {pet:'Fluffy', date:'2/2/14', activity:'Pet', rate:-2};
-    this.history.push(h);
-
-    h = {pet:'Scruffy', date:'3/2/14', activity:'Jump', rate:3};
-    this.history.push(h);
-
-    h = {pet:'GoGo', date:'4/2/14', activity:'Run', rate:7};
-    this.history.push(h);
-
-    console.log(this.history);
+    const currUser = this.authService.getCurrentUser();
+    const user = currUser.username;
+    const id = currUser.id;
+    const email = currUser.email;
+    if (user.length > 0) {
+      this.username = user;
+      this.userid = id;
+      this.email = email;
+      result = true;
+    }
+    return result;
   }
 
 }
