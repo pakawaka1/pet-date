@@ -64,7 +64,8 @@
           <td>{{pet.energy}}</td>
           <td>{{pet.age}}</td>
           <td>{{pet.rating}}</td>
-          <td><a href="http://localhost:5000/pet-detail">View Pet</a></td>
+          <!--<td><a href="http://localhost:5000/pet-detail">View Pet</a></td>-->
+          <td><button (click)="onClickViewPet(pet._id)">View Pet</button>
           <td><a href="#" *ngIf="loggedin.username">Schedule</a></td>
         </tr>
       </table>

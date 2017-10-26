@@ -3,8 +3,8 @@ import { NgClass } from '@angular/common';
 import { PetsService } from '../../services/pets.service';
 import { Pet } from './pet-list';
 import { AuthService } from '../../auth/auth.service';
-import { PetService } from '../pet.service'
-
+import { PetService } from '../pet.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pet-list',
@@ -22,7 +22,8 @@ import { PetService } from '../pet.service'
      constructor(
        private petsService: PetsService,
        private petService: PetService,
-       private authService: AuthService
+       private authService: AuthService,
+       private router: Router
      ) {
 
      }
@@ -32,7 +33,15 @@ import { PetService } from '../pet.service'
         this.petService.getPets()
             .subscribe(allPets => {
                 this.allPets = allPets;
-             })
+             });
           // console.log(this.allPets[0])
      }
+
+     onClickViewPet(pet_id) {
+       // Save id to local storage, and then call pet detail.
+       localStorage.setItem('pet_id', pet_id );
+       this.router.navigate(['/pet-detail']);
+       console.log(pet_id);
+     }
+
  }

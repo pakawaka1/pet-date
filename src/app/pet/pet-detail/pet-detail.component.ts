@@ -14,7 +14,8 @@ import { PetService } from '../pet.service';
 export class PetDetailComponent implements OnInit {
 
   loggedin = false;
-
+  pet_id = "";
+  pet = null;
 
   constructor(
     private petsService: PetsService,
@@ -25,6 +26,16 @@ export class PetDetailComponent implements OnInit {
   }
 
   ngOnInit () {
-     this.loggedin = this.authService.getCurrentUser()
+     this.loggedin = this.authService.getCurrentUser();
+
+     // get selected pet_id from local storage, and then load from db.
+    this.pet_id = localStorage.getItem('pet_id');
+    console.log('X' + this.pet_id);
+
+    this.petService.getOnePet(this.pet_id)
+      .subscribe(data => {
+        console.log('petService.getOnePet return');
+        this.pet = data;
+      });
   }
 }
