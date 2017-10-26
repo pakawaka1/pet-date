@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from "@angular/router";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 
 import { Pet } from '../pet-list/pet-list';
 import { IHistory } from '../../user-profile/ihistory';
@@ -15,7 +18,7 @@ import { PetService } from '../pet.service'
 export class PetScheduleComponent implements OnInit, OnDestroy {
   loggedin = false;
   sub: any;
-  pet;
+  pet: Pet;
 
   // pet = {
   //   photo: "pup6.jpg",
@@ -38,6 +41,7 @@ export class PetScheduleComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe( params => {
       console.log(params);
       let id = params['id'];
+      console.log(id);
       this.pet = this.petService.getOnePet(id);
       console.log(this.pet);
     });
