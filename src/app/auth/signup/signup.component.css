@@ -45,7 +45,11 @@
 	width: 100%;
 }
 
-.name input {
-	width: 100%;
+.name {
 	padding: 0 auto;
+}
+
+.namesave {
+	padding: 0 auto;
+	margin: 0 auto;
 }
