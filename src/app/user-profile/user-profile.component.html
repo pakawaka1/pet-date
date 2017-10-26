@@ -31,30 +31,5 @@
 <br>
 
 <!--History goes here-->
-
-<div class="row">
-  <div class="col-xs-1"></div>
-  <div class="col-xs-10">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Pet</th>
-      <th>Date</th>
-      <th>Activity</th>
-      <th>Rate</th>
-    </tr>
-    </thead>
-
-    <tbody>
-
-    <tr scope="row" *ngFor="let h of history">
-      <td>{{h.pet}}</td>
-      <td>{{h.date}}</td>
-      <td>{{h.activity}}</td>
-      <td>{{h.rate}}</td>
-    </tr>
-  </table>
-  </div>
-  <div class="col-xs-1"></div>
-</div>
+<app-history></app-history>
 

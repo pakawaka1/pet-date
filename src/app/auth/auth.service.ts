@@ -46,9 +46,7 @@ logout() {
 }
 
 storeUserData(user) {
-  //localStorage.setItem('token', token);
   localStorage.setItem("user",JSON.stringify(user));
-  //this.authToken = token;
   this.user = user;
 }
 
@@ -70,11 +68,10 @@ getCurrentUser() {
     "firstName":"",
     "lastName":"",
     "email":"",
-    //"valid": false
+    "_id":""
   };
 
   if ( user ) {
-    // user.valid = true;
     result = user;
   }
   return result;

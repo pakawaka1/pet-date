@@ -132,6 +132,7 @@ app.post("/api/user", function (req, res) {
       firstName: item.firstName,
       lastName: item.lastName,
       email: item.email,
+      id: item._id
     };
     console.log("user being sent is: " + user);
     console.dir(user);
@@ -157,6 +158,9 @@ app.get("/api/history", function(req, res) {
 app.get("/api/history/:id", function(req, res) {
   let hist = [];
   let userid = req.params.id;
+
+  console.log('/api/history/' + userid );
+
   let cursor = db.collection('history').find({user_id:ObjectId(userid)});
   // Example call:
   // db.getCollection('history').find({user_id:ObjectId("59f10d76fda7d403d82e75cd")})
