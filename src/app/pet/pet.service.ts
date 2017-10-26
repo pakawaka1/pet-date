@@ -32,7 +32,9 @@ export class PetService {
 
   getOnePet(id){
     //this.createAuthenticationHeaders();
-    return this.http.get(this.apipath + id, this.options).map(res => res.json());
+    const api = this.apipath + '/' + id;
+    console.log('service.getOnePet: ' + api);
+    return this.http.get(api, this.options).map(res => res.json());
   }
 
   postComment(id, comment){

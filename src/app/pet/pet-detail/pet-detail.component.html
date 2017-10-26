@@ -13,14 +13,14 @@
     <div class="pet-1">
       <div class="col-sm-6 img-responsive">
         <div class="photo">
-          <img src="/assets/img/sophieresized.jpg">
+          <img  src="{{pet.photo}}" width="200" >
         </div>
       </div>
       <div class="col-sm-6">
-        <p>Name: Sophie</p>
-        <p>Status: Available</p>
-        <p>Notes on Sophie...</p>
-        <p>Sophie is great.  She walks well and is engaged.</p>
+        <p>Name: {{pet.name}}</p>
+        <p>Status: {{pet.state}}</p>
+        <p>Rating: {{pet.rating}}</p>
+        <p>Energy: {{pet.energy}}</p>
         <button>Schedule a Walk</button>
       </div>
     </div>
@@ -49,3 +49,4 @@
     </div>
   </div>
 </div>
+
