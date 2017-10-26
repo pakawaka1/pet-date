@@ -15,10 +15,11 @@ import { PetService } from '../pet.service'
   templateUrl: './pet-schedule.component.html',
   styleUrls: ['./pet-schedule.component.css']
 })
-export class PetScheduleComponent implements OnInit, OnDestroy {
+export class PetScheduleComponent implements OnInit {
   loggedin = false;
   sub: any;
-  pet: Pet;
+  pet_id = "";
+  pet = null;
 
   // pet = {
   //   photo: "pup6.jpg",
@@ -38,17 +39,23 @@ export class PetScheduleComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe( params => {
-      console.log(params);
-      let id = params['id'];
-      console.log(id);
-      this.pet = this.petService.getOnePet(id);
-      console.log(this.pet);
-    });
-  }
+    this.loggedin = this.authService.getCurrentUser();
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+    this.pet_id = this.route.params['id'];
+    console.log(this.pet_id);
 
+  //   this.sub = this.route.params.subscribe( params => {
+  //     console.log(params);
+  //     let id = params['id'];
+  //     console.log(id);
+  //     this.pet = this.petService.getOnePet(id);
+  //     console.log(this.pet);
+  //   });
+  // }
+
+  // ngOnDestroy() {
+  //   this.sub.unsubscribe();
+  // }
+
+}
 }
