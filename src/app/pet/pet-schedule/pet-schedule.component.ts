@@ -17,20 +17,9 @@ import { PetService } from '../pet.service'
 })
 export class PetScheduleComponent implements OnInit {
   loggedin = false;
-  sub: any;
   pet_id = "";
-  pet = null;
+  pet = Pet;
 
-  // pet = {
-  //   photo: "pup6.jpg",
-  //   name: "Fluffy",
-  //   type: "dog",
-  //   id: "abcd",
-  //   size: "medium",
-  //   energy: "medium",
-  //   age: 2,
-  //   rating: 5
-  // };
   constructor(
     private petService: PetService,
     private authService: AuthService,
@@ -38,24 +27,20 @@ export class PetScheduleComponent implements OnInit {
   ) {
   }
 
+  onLoginSubmit() {
+    console.log('submitting');
+  }
+
   ngOnInit() {
     this.loggedin = this.authService.getCurrentUser();
+    this.pet_id = this.route.snapshot.params['id'];
+    console.log("pet id: " + this.pet_id);
 
-    this.pet_id = this.route.params['id'];
-    console.log(this.pet_id);
-
-  //   this.sub = this.route.params.subscribe( params => {
-  //     console.log(params);
-  //     let id = params['id'];
-  //     console.log(id);
-  //     this.pet = this.petService.getOnePet(id);
-  //     console.log(this.pet);
-  //   });
-  // }
-
-  // ngOnDestroy() {
-  //   this.sub.unsubscribe();
-  // }
+    this.petService.getOnePet(this.pet_id)
+      .subscribe(data => {
+        console.log('petService.getOnePet return');
+        this.pet = data;
+      });
 
 }
 }
