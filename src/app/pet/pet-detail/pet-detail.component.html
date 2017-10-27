@@ -21,7 +21,7 @@
         <p>Status: {{pet.state}}</p>
         <p>Rating: {{pet.rating}}</p>
         <p>Energy: {{pet.energy}}</p>
-        <button>Schedule a Walk</button>
+        <a class="btn btn-primary" href="/schedule/{{pet.id}}">Schedule a Walk</a>
       </div>
     </div>
   </div>
@@ -46,10 +46,7 @@
       <p>Activity: Run</p>
       <p>Rating: 5</p>
       <p>joewalker's Notes: We had a great time. Sophie was friendly and somewhat energetic.</p>
-      <button type="button">
-        <a href="http://localhost:5000/profile">See User Profile</a>
-      </button>
+
     </div>
   </div>
 </div>
-
