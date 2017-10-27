@@ -48,7 +48,7 @@ app.get("/api/pet/:id", function(req, res) {
 				photo: item.photo,
 				name: item.name,
 				type: item.type,
-				id: item.id,
+				id: item._id,
 				size: item.size,
 				energy: item.energy,
 				age: item.age,
@@ -71,7 +71,7 @@ app.get("/api/schedule/:id", function(req, res) {
 				photo: item.photo,
 				name: item.name,
 				type: item.type,
-				id: item.id,
+				id: item._id,
 				size: item.size,
 				energy: item.energy,
 				age: item.age,
@@ -174,6 +174,23 @@ app.get("/api/history", function(req, res) {
     } else {
       res.send(hist);
     }
+  });
+});
+
+app.post("/api/history", function(req, res) {
+  console.log("arrived at post history");
+  const history = {
+    pet_id: ObjectId(req.body.pet_id),
+    user_id: ObjectId(req.body.user_id),
+    petname: req.body.petname,
+    date: req.body.date,
+    activity: req.body.activity,
+    rating: ""
+  };
+  console.log(history);
+  db.collection('history').insertOne(history, function(err, item) {
+    console.log("arrived here");
+    res.send(200);
   });
 });
 

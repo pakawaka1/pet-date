@@ -34,6 +34,11 @@ registerUser(user){
   return this.http.post(this.apipath + '/auth/register', user).map(res => res.json());
 }
 
+saveHistory(history) {
+  console.log("about to save history");
+  return this.http.post('/api/history', history).map(res => res.json());
+}
+
 login(user) {
   // console.log("in auth service");
   return this.http.post(this.apipath, user).map(res => res.json());

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from "@angular/router";
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -16,29 +17,42 @@ import { PetService } from '../pet.service'
   styleUrls: ['./pet-schedule.component.css']
 })
 export class PetScheduleComponent implements OnInit {
-  loggedin = false;
+  loggedin: any;
   pet_id = "";
-  pet = Pet;
+  pet: Pet;
+  history: IHistory;
 
   constructor(
     private petService: PetService,
     private authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
   }
 
-  onLoginSubmit() {
-    console.log('submitting');
+  onLoginSubmit(date, activity) {
+    console.log("submitting form");
+    const history = {
+      pet_id: this.pet.id,
+      user_id: this.loggedin.id,
+      petname: this.pet.name,
+      date: date,
+      activity: activity,
+      rating: ""
+    };
+    console.log(history);
+    this.authService.saveHistory(history)
+      .subscribe(data => {
+        console.log(data);
+      });
+      this.router.navigate(['/profile']);
   }
 
   ngOnInit() {
     this.loggedin = this.authService.getCurrentUser();
     this.pet_id = this.route.snapshot.params['id'];
-    console.log("pet id: " + this.pet_id);
-
     this.petService.getOnePet(this.pet_id)
       .subscribe(data => {
-        console.log('petService.getOnePet return');
         this.pet = data;
       });
 
