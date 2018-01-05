@@ -24,7 +24,7 @@
     "angular-jwt": "^0.1.9",
     "angular2-jwt": "^0.2.3",
     "angularjs-server": "0.0.31",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "3.3.7",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
     "mongodb": "^2.2.33",
