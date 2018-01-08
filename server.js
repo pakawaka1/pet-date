@@ -5,9 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
-
-
-const port = 5000;
+const PORT = process.env.PORT || 5000;
 
 var db;
 
@@ -218,6 +216,8 @@ app.get('*', (req, res) => {
  	res.sendfile(path.join(__dirname + '/dist/index.html'));
 });
 
-app.listen(port, function(){
-	console.log("Server is running on port " + port);
-})
+//app.listen(port, function(){
+//	console.log("Server is running on port " + port);
+//})
+
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
