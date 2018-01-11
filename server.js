@@ -212,15 +212,11 @@ app.get("/api/history/:id", function(req, res) {
   });
 });
 
-//pp.get('*', (req, res) => {
- 	//res.sendfile(path.join(__dirname + '/dist/index.html'));
-//});
 
 //app.listen(port, function(){
 //	console.log("Server is running on port " + port);
 //})
 
-app.use('/users', users);
 
 //Index Route
 app.get ('/', (req, res) => {
