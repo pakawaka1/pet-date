@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000
 
 var db;
 
