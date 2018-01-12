@@ -1,4 +1,6 @@
 const express = require('express');
+const app = express();
+
 const path = require('path');
 const fs = require('fs');
 const mongoose = require('mongoose');
@@ -16,7 +18,6 @@ MongoClient.connect("mongodb://dog:noinstructor2@ds121665.mlab.com:21665/pets", 
   db = database;
 });
 
-const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/dist'));

@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+//import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from "@angular/router";
+
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { AuthComponent } from './auth/auth.component';
@@ -26,6 +28,23 @@ import { AuthService } from './auth/auth.service';
 import { PetService } from './pet/pet.service';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { HistoryComponent } from './history/history.component';
+
+const appRoutes: Routes = [
+  {path: '', component: LandingComponent},
+  {path: 'login', component: LogInComponent},
+  {path: 'register', component: SignupComponent},
+  {path: 'faq', component: FaqComponent},
+  {path: 'profile', component: UserProfileComponent},
+  {path: 'pets', component: PetListComponent},
+  {path: 'pet-detail', component: PetDetailComponent},
+  {path: 'schedule/:id', component: PetScheduleComponent},
+  {path: 'terms', component: TermsComponent },
+  {path: 'logout', component: LogoutComponent },
+  {path: 'history', component: HistoryComponent },
+  
+  // {path: '*', redirectTo: ''},
+];
+
 
 
 @NgModule({
@@ -53,7 +72,9 @@ import { HistoryComponent } from './history/history.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    //AppRoutingModule
+    RouterModule.forRoot(appRoutes),
+
   ],
   providers: [PetsService, AuthService, PetService],
   bootstrap: [AppComponent]
